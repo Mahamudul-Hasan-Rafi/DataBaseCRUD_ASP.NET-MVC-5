@@ -1,0 +1,14 @@
+﻿.button-link{
+    padding: 7px 12px;
+    background-color: lightcoral;
+    border-radius: 5px;
+    color: white;
+    text-decoration:none;
+    margin-left: 20px; 
+}
+
+.button-link:hover{
+    text-decoration: none;
+    color: white;
+    background-color:coral;
+}

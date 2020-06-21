@@ -1,0 +1,74 @@
+﻿@model MyDataBase.Model.Employee
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h4 class="mt-4 text-center">Registration</h4>
+
+
+@using (Html.BeginForm("Index","Home",FormMethod.Post, new {@class="d-flex justify-content-center" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal col-md-5">
+        <h4 class="text-center">@ViewBag.Success</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZipCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @if (ViewBag.Value == 1)
+                {
+                    <input type="submit" value="Create" disabled class="btn btn-success" />
+                    @Html.ActionLink("Records", "ShowAllRecords", "Home", null,
+                    new
+                    {
+                      @class = "button-link"
+                    })
+                }
+                else
+                {
+                    <input type="submit" value="Create" class="btn btn-success" />
+
+                }
+
+            </div>
+        </div>
+    </div>
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
